@@ -1,0 +1,1599 @@
+{
+	"info": {
+		"_postman_id": "ea68095e-0657-47e2-b945-3154b0621ffb",
+		"name": "Xamlinx API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get a user by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/users/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get current user payment methods",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/users/get-payment-methods",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"get-payment-methods"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImVsaUBhbGFza2EuZWR1IiwiaWF0IjoxNjI5NjkyMjAyLCJleHAiOjE2Mjk2OTU4MDJ9.WKK5TmysrCuHQr0UdnfRcFZfP8WSC1sEYp6dEWqtpks",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"test\",\r\n    \"email\": \"test2@mail.com\",\r\n    \"password\": \"password\",\r\n    \"schoolId\": 1,\r\n    \"role\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/auth/signup",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@xamlinx.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/auth/login",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get authenticated user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkbWluQHhhbWxpbnguY29tIiwiaWF0IjoxNjIzMTA5MTQyLCJleHAiOjE2MjMxMTI3NDJ9.GlQs6F7SSDEmP47-dxoInonSdyinL7Wyw0VWi7Wic4Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/auth/me",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Exam",
+			"item": [
+				{
+					"name": "Upload exam",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mode",
+									"value": "single",
+									"type": "text"
+								},
+								{
+									"key": "summary",
+									"value": "this is new exam",
+									"type": "text"
+								},
+								{
+									"key": "grade_value",
+									"value": "68",
+									"type": "text"
+								},
+								{
+									"key": "discipline_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "subject_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "level_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "ungraded_file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "graded_file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "exam_date",
+									"value": "2021-06-05",
+									"type": "text"
+								},
+								{
+									"key": "semester",
+									"value": "1",
+									"description": "-",
+									"type": "text"
+								},
+								{
+									"key": "prof_first_name",
+									"value": "David",
+									"type": "text"
+								},
+								{
+									"key": "prof_last_name",
+									"value": "Bowie",
+									"type": "text"
+								},
+								{
+									"key": "prof_web",
+									"value": "https://www.uaa.alaska.edu/academics/college-of-arts-and-sciences/departments/english/faculty/bowie.cshtml",
+									"type": "text"
+								},
+								{
+									"key": "prof_email",
+									"value": "david.bowie@alaska.edu",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/exams/create",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"exams",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all exams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/exams",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"exams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an exam",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mode\": \"single\",\n    \"group_name\": null,\n    \"summary\": \"first test exam by single\",\n    \"grade_value\": 95,\n    \"discipline_id\": 1,\n    \"subject_id\": 1,\n    \"level_id\": 1,\n    \"course_number\": \"12345\",\n    \"exam_number\": \"1\",\n    \"exam_date\": \"2021-06-02\",\n    \"duration\": 1,\n    \"semester\": 1,\n    \"prof_first_name\": \"David\",\n    \"prof_last_name\": \"Bowie\",\n    \"prof_web\": \"https://www.uaa.alaska.edu/academics/college-of-arts-and-sciences/departments/english/faculty/bowie.cshtml\",\n    \"prof_email\": \"david.bowie@alaska.edu\",\n    \"questions_and_solutions\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/exams/create",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"exams",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get disciplines",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/exams/get-disciplines",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"exams",
+								"get-disciplines"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get levels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/exams/get-levels",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"exams",
+								"get-levels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get subjects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/exams/get-subjects",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"exams",
+								"get-subjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get exams of auth user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/exams/get-by-user",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"exams",
+								"get-by-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an exam by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/exams/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"exams",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a professor by email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/exams/get-professor/david.bowie@alaska.edu",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"exams",
+								"get-professor",
+								"david.bowie@alaska.edu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an exam",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"summary\": \"first test exam by single\",\n    \"grade_value\": 95,\n    \"discipline_id\": 1,\n    \"subject_id\": 1,\n    \"level_id\": 1,\n    \"course_number\": \"12345\",\n    \"exam_number\": \"1\",\n    \"exam_date\": \"2021-06-02\",\n    \"duration\": 1,\n    \"semester\": 1,\n    \"prof_first_name\": \"David\",\n    \"prof_last_name\": \"Bowie\",\n    \"prof_web\": \"https://www.uaa.alaska.edu/academics/college-of-arts-and-sciences/departments/english/faculty/bowie.cshtml\",\n    \"prof_email\": \"david.bowie@alaska.edu\",\n    \"questions_and_solutions\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/exams/update/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"exams",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find group by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/exams/get-group/jack group",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"exams",
+								"get-group",
+								"jack group"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get exam's rating",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/exams/ratings/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"exams",
+								"ratings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkbWluQHhhbWxpbnguY29tIiwiaWF0IjoxNjI5ODg5Njg2LCJleHAiOjE2Mjk4OTMyODZ9.sgntkxhND28n2XgFmgC-UhCVs_UASip4P556T7xKgtB",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Request",
+			"item": [
+				{
+					"name": "Get all requests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/requests",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"discipline_id\": 1,\n    \"level_id\": 1,\n    \"subject_id\": 1,\n    \"exam_date\": \"2021-06-01\",\n    \"exam_number\": \"1\",\n    \"duration\": 1,\n    \"semester\": 1,\n    \"delay\": 3,\n    \"course_num\": null,\n    \"other_school\": false,\n    \"other_semester\": false,\n    \"other_professor\": false,\n    \"prof_first_name\": \"David\",\n    \"prof_last_name\": \"Bowie\",\n    \"prof_email\": \"david.bowie@alaska.edu\",\n    \"plan\": \"standard\",\n    \"year\": 2021\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/requests/create",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"requests",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a request by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/requests/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"requests",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Purchase exam",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"mark@alaska.edu\",\n    \"exam_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/requests/1/purchase",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"requests",
+								"1",
+								"purchase"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get my requests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/requests/get-by-user",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"requests",
+								"get-by-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dismiss a request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/requests/dismiss/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"requests",
+								"dismiss",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/requests/delete/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"requests",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImphY2tAYWxhc2thLmVkdSIsImlhdCI6MTYyOTg4ODYxNywiZXhwIjoxNjI5ODkyMjE3fQ.JSakQ4vDlQrbb7xPuiWFQRF74SM_iD9s_OGRyrd0dLA",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Create new reviewer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"David\",\n    \"last_name\": \"Bowie\",\n    \"email\": \"david.bowie@alaska.edu\",\n    \"school_id\": 1,\n    \"disciplines\": [1, 2],\n    \"levels\": [1, 2],\n    \"subjects\": [1, 2],\n    \"password\": \"testsdsdsdsd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/admin/reviewers",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"reviewers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get reviewers by competency",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"discipline_id\": 2,\n    \"level_id\": 1,\n    \"subject_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/admin/reviewers/get-by-competency",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"reviewers",
+								"get-by-competency"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"exam_id\": 1,\n    \"professors\": [7]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/admin/reviewers/request-review",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"reviewers",
+								"request-review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept exam",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/admin/exams/activate/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"exams",
+								"activate",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find matching exams by request id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/admin/requests/find-match/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"requests",
+								"find-match",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all reviewers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/admin/reviewers",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"reviewers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a reviewer by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/admin/reviewers/7",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"reviewers",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a revewer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"disciplines\": [1, 2],\n    \"levels\": [1, 2],\n    \"subjects\": [1, 2, 3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/admin/reviewers/update/8",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"reviewers",
+								"update",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a request by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/admin/requests/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"requests",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign matched exams to request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/admin/requests/assign",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"requests",
+								"assign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an exam by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/admin/exams/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"exams",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mark as verified an exam",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/admin/exams/mark-verified",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"exams",
+								"mark-verified"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/admin/groups",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set group's quality",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"group_id\": 1,\n    \"quality\": \"poor\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/admin/groups/set-quality",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"groups",
+								"set-quality"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get settings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/admin/settings",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update settings",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"payment_methods\",\n    \"key\": \"PayPal\",\n    \"value\" : true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/admin/settings",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get payable users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/admin/get-payable-users",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"get-payable-users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkbWluQHhhbWxpbnguY29tIiwiaWF0IjoxNjI5NzA3OTA4LCJleHAiOjE2Mjk3MTE1MDh9.sWIlcXOTWtECGhFqjAPyCaK5R63Ws-CmIByXWezqn6Q",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Reviewer",
+			"item": [
+				{
+					"name": "Get exams for review",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/reviewers/get-exams",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"reviewers",
+								"get-exams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Review exam",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"exam_id\": 1,\n    \"result\": \"revision\",\n    \"questions_and_solutions\": [\n        {\n            \"question\": \"question 1\",\n            \"solution\": \"solution 1\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/reviewers/review-exam",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"reviewers",
+								"review-exam"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRhdmlkLmJvd2llMUBhbGFza2EuZWR1IiwiaWF0IjoxNjI5NDUwNzU0LCJleHAiOjE2Mjk0NTQzNTR9.3IFYALD72Mg8NoWnMYFXFIvjeZrEAFg0EObORzA1epc",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Settings",
+			"item": [
+				{
+					"name": "Get available payment methods",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/settings/available-payment-methods",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"settings",
+								"available-payment-methods"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImVsaUBhbGFza2EuZWR1IiwiaWF0IjoxNjI5NzA3MjQwLCJleHAiOjE2Mjk3MTA4NDB9.GhGmPhZGExQaL-gdcVlthh0KuHcgjbWPxYA07MijSxg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Group",
+			"item": [
+				{
+					"name": "Get current user's groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/groups",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a group by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/groups/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"groups",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get group users by group Id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/groups/get-group-users/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"groups",
+								"get-group-users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get group questions by group Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/groups/group-qas/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"groups",
+								"group-qas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete group",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/groups/1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"groups",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Preview composed exam by group Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/groups/1/preview-compose",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"groups",
+								"1",
+								"preview-compose"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImphY2tAYWxhc2thLmVkdSIsImlhdCI6MTYyOTg4ODYxNywiZXhwIjoxNjI5ODkyMjE3fQ.JSakQ4vDlQrbb7xPuiWFQRF74SM_iD9s_OGRyrd0dLA",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Rating",
+			"item": [
+				{
+					"name": "Create a rating",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"exam_id\": 1,\n    \"user_id\": 2,\n    \"stars\": 4,\n    \"review_body\": \"gs1212\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/api/ratings/create",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"ratings",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get rating by user and exam",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/api/ratings/get-by-user-and-exam/1&2",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"api",
+								"ratings",
+								"get-by-user-and-exam",
+								"1&2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImVsaUBhbGFza2EuZWR1IiwiaWF0IjoxNjI5OTI3NzMwLCJleHAiOjE2Mjk5MzEzMzB9.RRjZFmegXgzgCmBUu3VdhnAbw1XCp3tXGhJo00uS3nM",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Get all countries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/api/countries",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"api",
+						"countries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/api/students",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"api",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all schools by country Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/api/schools?country_id=241",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"api",
+						"schools"
+					],
+					"query": [
+						{
+							"key": "country_id",
+							"value": "241"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
